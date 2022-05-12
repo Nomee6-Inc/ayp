@@ -51,7 +51,22 @@ if (isset($_POST['depremdevredisi'])) {
   }
   file_put_contents('./dunya.json', json_encode($json_arr));
 };
-
+if (isset($_POST['duzyap'])) {
+  foreach ($json_arr as $key => $value) {
+      if ($value['id'] == "dunya") {
+          $json_arr[$key]['status'] = "duz";
+      }
+  }
+  file_put_contents('./dunya.json', json_encode($json_arr));
+};
+if (isset($_POST['yuvarlakyap'])) {
+  foreach ($json_arr as $key => $value) {
+      if ($value['id'] == "dunya") {
+          $json_arr[$key]['status'] = "yuvarlak";
+      }
+  }
+  file_put_contents('./dunya.json', json_encode($json_arr));
+};
 $jsonitem = file_get_contents("./dunya.json");
 
 $objitems = json_decode($jsonitem);
@@ -123,7 +138,7 @@ $findstatus = function($id) use ($objitems) {
                 <div class="container-xl">
                     <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                     <a href=".">
-                      <img src="./static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                      <img src="./static/logo.svg" width="110" height="32" alt="AYP" class="navbar-brand-image">
                     </a>
                 </h1>
             </div>
@@ -212,7 +227,13 @@ $findstatus = function($id) use ($objitems) {
                         <div class="row row-cards">
                           <div class="col-12">
                             <div class="card">
-                              <div class="card-img-top img-responsive img-responsive-16by9" style="background-image: url(./static/dunya.jpg)"></div>
+                              <?php
+                              if($findstatus("dunya") == "yuvarlak") {
+                                  echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/dunya.jpg)\"></div>";
+                              } else if($findstatus("dunya") == "duz") {
+                                  echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzdunya.jpg)\"></div>";
+                              }
+                              ?>
                               <div class="card-body">
                                 <h3 class="card-title">Dünya Ayarları</h3>
                                 <p>Dünya Durumu: <div class="text-success">Aktif</div>
@@ -282,6 +303,10 @@ $findstatus = function($id) use ($objitems) {
                               <div></div><h4></h4>
                               <form enctype="multipart/form-data" action="" method="POST">
                                 <button name="duzyap" class="btn btn-primary">Dünyayı Düz Yap</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <button name="yuvarlakyap" class="btn btn-primary">Dünyayı Yuvarlak Yap</button>
                               </form>
                               <div></div><h4></h4>
                               <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#dininidegistir">
