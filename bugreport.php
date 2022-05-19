@@ -1,10 +1,30 @@
+<?php
+
+if (isset($_POST['submit'])) {
+    $bugtitle = $_POST['bug'];
+    $bugdesc = $_POST['desc'];
+    $bugowner = $_POST['username'];
+    $conn = mysqli_connect("", "", "", "");
+    $sql = "INSERT INTO bugs (bug, bugdesc, owner)
+					VALUES ('$bugtitle', '$bugdesc', '$bugowner')";
+    $run_query = mysqli_query($conn, $sql);
+
+    if($run_query) {
+        echo "Bug/Öneri başarıyla bildirildi!";
+        header("Refresh:5");
+    } else {
+        echo "Bir Hata Oluştu!";
+    };
+};
+?>
+
 <!doctype html>
 <html lang="tr">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Yapımcılar | Allah Yönetim Paneli</title>
+    <title>Bug Bildir | Allah Yönetim Paneli</title>
     <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
     <link href="./dist/css/tabler-payments.min.css" rel="stylesheet"/>
@@ -114,19 +134,42 @@
                               </span>
                             </a>
                           </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link" href="./community.php" >
+                              <span class="nav-link-title">
+                                Topluluk
+                              </span>
+                            </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </header>
               </div>
-    <div class="page-wrapper">
+ <div class="page-wrapper">
         <div class="container-xl">
-              <div class="col-12">
-
-      </div>
-    </div>
-</div>
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Bug Bildir
+                </div>
+        <form action="" method="POST">
+            <div class="mb-3">
+				<input class="form-control" rows="6" type="text" placeholder="İsminiz" name="username" required>
+            </div>
+            <div class="mb-3">
+				<input class="form-control" rows="6" type="text" placeholder="Bug/Önerinin Kısa Açıklaması" name="bug" required>
+            </div>
+			<div class="mb-3">
+				<textarea class="form-control" rows="6" type="text" placeholder="Detaylı Açıklama" name="desc" required></textarea>
+            </div>
+			<div class="mb-3">
+				<button class="form-control" name="submit" class="btn">Gönder</button>
+			</div>
+		</form>
         <footer class="footer footer-transparent d-print-none">
           <div class="container-xl">
             <div class="row text-center align-items-center flex-row-reverse">
