@@ -156,6 +156,13 @@ header("Refresh:0");
                               </span>
                             </a>
                           </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link" href="./community.php" >
+                              <span class="nav-link-title">
+                                Topluluk
+                              </span>
+                            </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
