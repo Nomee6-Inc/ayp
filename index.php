@@ -83,6 +83,8 @@ $findstatus = function($id) use ($objitems) {
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="description" content="Allah Yönetim Paneli ile tüm güç artık senin!">
+    <meta name="keywords" content="allah, yönetim, panel, paneli, allah yönetim, allah yönetim paneli, evren yönetim, evren yönetim paneli, evren yönetim panel, allah yönetim panel">
     <title>Allah Yönetim Paneli</title>
     <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
@@ -92,6 +94,7 @@ $findstatus = function($id) use ($objitems) {
     <meta property="og:title" content="Allah Yönetim Paneli" />
     <meta property="og:site_name" content="Allah Yönetim Paneli NOMEE6" />
     <meta property="og:locale" content="tr_TR" />
+    <meta property="og:description" content="Allah Yönetim Paneli ile tüm güç artık senin!" />
     <meta property="og:image" content="https://nomee6.xyz/assets/pp.png" />
     <!-- Matomo -->
     <script>
@@ -213,6 +216,13 @@ $findstatus = function($id) use ($objitems) {
                               </span>
                             </a>
                           </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link" href="./community.php" >
+                              <span class="nav-link-title">
+                                Topluluk
+                              </span>
+                            </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -259,6 +269,7 @@ $findstatus = function($id) use ($objitems) {
                                     echo "<div class=\"text-danger\">Devre Dışı</div>";
                                   }
                                   ?></p>
+                              <small>Allaha şirk koşmayın şüphesiz ki o en hızlı koşandır. (Depar suresi 16. Ayet)</small>
                               </div>
                               <div class="card-footer">
                                 Yangınlar:
@@ -317,9 +328,60 @@ $findstatus = function($id) use ($objitems) {
                                 <button name="yagmur" class="btn btn-primary">Yağmur Yağdır</button>
                               </form>
                               <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <button name="3dunyasavasi" class="btn btn-primary">3. Dünya Savaşı Başlat</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="text" class="form-control" placeholder="Gezegen İsmi" required>
+                                <div></div><h4></h4>
+                                <button name="gezegenyarat" class="btn btn-primary">Gezegen Yarat</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="text" class="form-control" placeholder="Yıldız İsmi" required>
+                                <div></div><h4></h4>
+                                <button name="yildizyarat" class="btn btn-primary">Yıldız Yarat</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="text" class="form-control" placeholder="Bakteri İsmi" required>
+                                <div></div><h4></h4>
+                                <button name="bakteriyarat" class="btn btn-primary">Bakteri Yarat</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="text" class="form-control" placeholder="Cin İsmi" required>
+                                <div></div><h4></h4>
+                                <button name="cinyarat" class="btn btn-primary">Cin Yarat</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <input type="text" class="form-control" placeholder="Hayvan İsmi" required>
+                                <div></div><h4></h4>
+                                <button name="hayvanyarat" class="btn btn-primary">Hayvan Yarat</button>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <a href="dunya2.php" class="btn btn-primary">Diğer Seçenekler</a>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <a href="menu.php" class="btn btn-primary">Dünya Ayarları 2</a>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <a href="kulyonetim.php" class="btn btn-primary">Kul Yönetimi</a>
+                              </form>
+                              <div></div><h4></h4>
+                              <form enctype="multipart/form-data" action="" method="POST">
+                                <a href="multecipanel.php" class="btn btn-primary">Mülteci Yönetim Paneli</a>
+                              </form>
+                              <div></div><h4></h4>
                               <small class="form-hint">
                                   Bu sitenin kullanımından dolayı dünyada oluşacak zararlardan Nomee6 Inc. sorumlu tutulamaz.
                               </small>
+                              <div></div><h4></h4>
                               </div>
                             </div>
                           </div>
