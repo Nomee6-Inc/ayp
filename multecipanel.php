@@ -207,9 +207,25 @@ if (isset($_POST['send'])) {
                             <div class="card">
                               <?php
                               if($findstatus("dunya") == "yuvarlak") {
-                                  echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/dunya.jpg)\"></div>";
+                                  if($findstatus("yangin") == "aktif" && $findstatus("deprem") == "aktif") {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/yuvarlakdepremyangin.gif)\"></div>";
+                                  } else if($findstatus("yangin") == "aktif") {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/yuvarlakyangin.gif)\"></div>";
+                                  } else if($findstatus("deprem") == "aktif") {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/yuvarlakdeprem.gif)\"></div>";
+                                  } else {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/dunya.jpg)\"></div>";
+                                  }
                               } else if($findstatus("dunya") == "duz") {
-                                  echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzdunya.jpg)\"></div>";
+                                  if($findstatus("yangin") == "aktif" && $findstatus("deprem") == "aktif") {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzdepremyangin.gif)\"></div>";
+                                  } else if($findstatus("yangin") == "aktif") {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzyangin.gif)\"></div>";
+                                  } else if($findstatus("deprem") == "aktif") {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzdeprem.gif)\"></div>";
+                                  } else {
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/dunya.jpg)\"></div>";
+                                  }
                               }
                               ?>
                               <div class="card-body">
