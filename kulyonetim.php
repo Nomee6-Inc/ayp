@@ -96,6 +96,15 @@ $findstatus = function($id) use ($objitems) {
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:description" content="Allah Yönetim Paneli ile tüm güç artık senin!" />
     <meta property="og:image" content="https://nomee6.xyz/assets/pp.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="https://nomee6.xyz/assets/pp.png" />
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('https://ayp.nomee6.xyz/service-worker.js');
+    } else {
+        console.log("Service worker bu tarayıcıda desteklenmiyor.");
+    }
+    </script>
     <!-- Matomo -->
     <script>
       var _paq = window._paq = window._paq || [];
@@ -217,7 +226,7 @@ $findstatus = function($id) use ($objitems) {
                         <div class="row row-cards">
                           <div class="col-12">
                             <div class="card">
-                             <?php
+                              <?php
                               if($findstatus("dunya") == "yuvarlak") {
                                   if($findstatus("yangin") == "aktif" && $findstatus("deprem") == "aktif") {
                                       echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/yuvarlakdepremyangin.gif)\"></div>";
@@ -236,7 +245,7 @@ $findstatus = function($id) use ($objitems) {
                                   } else if($findstatus("deprem") == "aktif") {
                                       echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzdeprem.gif)\"></div>";
                                   } else {
-                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/dunya.jpg)\"></div>";
+                                      echo "<div class=\"card-img-top img-responsive img-responsive-16by9\" style=\"background-image: url(./static/duzdunya.jpg)\"></div>";
                                   }
                               }
                               ?>
