@@ -1,72 +1,9 @@
 <?php
+include_once 'config.php';
+
 $data = file_get_contents('./dunya.json');
 $json_arr = json_decode($data, true);
 
-if (isset($_POST['yanginaktif'])) {
-  foreach ($json_arr as $key => $value) {
-    if ($value['id'] == "yangin") {
-        $json_arr[$key]['status'] = "aktif";
-    }
-}
-file_put_contents('./dunya.json', json_encode($json_arr));
-};
-if (isset($_POST['yangindevredisi'])) {
-  foreach ($json_arr as $key => $value) {
-      if ($value['id'] == "yangin") {
-          $json_arr[$key]['status'] = "devredisi";
-      }
-  }
-  file_put_contents('./dunya.json', json_encode($json_arr));
-};
-
-if (isset($_POST['selaktif'])) {
-  foreach ($json_arr as $key => $value) {
-    if ($value['id'] == "sel") {
-        $json_arr[$key]['status'] = "aktif";
-    }
-}
-file_put_contents('./dunya.json', json_encode($json_arr));
-};
-if (isset($_POST['seldevredisi'])) {
-  foreach ($json_arr as $key => $value) {
-      if ($value['id'] == "sel") {
-          $json_arr[$key]['status'] = "devredisi";
-      }
-  }
-  file_put_contents('./dunya.json', json_encode($json_arr));
-};
-if (isset($_POST['depremaktif'])) {
-  foreach ($json_arr as $key => $value) {
-    if ($value['id'] == "deprem") {
-        $json_arr[$key]['status'] = "aktif";
-    }
-}
-file_put_contents('./dunya.json', json_encode($json_arr));
-};
-if (isset($_POST['depremdevredisi'])) {
-  foreach ($json_arr as $key => $value) {
-      if ($value['id'] == "deprem") {
-          $json_arr[$key]['status'] = "devredisi";
-      }
-  }
-  file_put_contents('./dunya.json', json_encode($json_arr));
-};
-if (isset($_POST['duzyap'])) {
-  foreach ($json_arr as $key => $value) {
-      if ($value['id'] == "dunya") {
-          $json_arr[$key]['status'] = "duz";
-      }
-  }
-  file_put_contents('./dunya.json', json_encode($json_arr));
-};
-if (isset($_POST['yuvarlakyap'])) {
-  foreach ($json_arr as $key => $value) {
-      if ($value['id'] == "dunya") {
-          $json_arr[$key]['status'] = "yuvarlak";
-      }
-  }
-  file_put_contents('./dunya.json', json_encode($json_arr));
-};
 $jsonitem = file_get_contents("./dunya.json");
 
 $objitems = json_decode($jsonitem);
@@ -83,8 +20,8 @@ $findstatus = function($id) use ($objitems) {
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="description" content="Allah Yönetim Paneli ile tüm güç artık senin!">
-    <meta name="keywords" content="allah, yönetim, panel, paneli, allah yönetim, allah yönetim paneli, evren yönetim, evren yönetim paneli, evren yönetim panel, allah yönetim panel">
+    <meta name="description" content="Allah Yönetim Paneli ile tüm güç artk senin!">
+    <meta name="keywords" content="allah, yönetim, panel, paneli, allah yönetim, allah yönetim paneli, evren yönetim, evren yönetim paneli, evren yönetim panel, allah ynetim panel">
     <title>Allah Yönetim Paneli</title>
     <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
@@ -102,7 +39,7 @@ $findstatus = function($id) use ($objitems) {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('https://ayp.nomee6.xyz/service-worker.js');
     } else {
-        console.log("Service worker bu tarayıcıda desteklenmiyor.");
+        console.log("Service worker bu taraycıda desteklenmiyor.");
     }
     </script>
     <!-- Matomo -->
@@ -150,35 +87,35 @@ $findstatus = function($id) use ($objitems) {
                       <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
                         <ul class="navbar-nav">
                           <li class="nav-item active">
-                            <a class="nav-link" href="dunya.php" >
+                            <a class="nav-link" href="dunya" >
                               <span class="nav-link-title">
                                 Dünya
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cehennem.php" >
+                            <a class="nav-link" href="cehennem" >
                               <span class="nav-link-title">
                                 Cehennem
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cennet.php" >
+                            <a class="nav-link" href="cennet" >
                               <span class="nav-link-title">
                                 Cennet
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="dolar.php" >
+                            <a class="nav-link" href="dolar" >
                               <span class="nav-link-title">
                                 Dolar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="bank.php" >
+                            <a class="nav-link" href="bank" >
                               <span class="nav-link-title">
                                 Banka
                               </span>
@@ -192,21 +129,21 @@ $findstatus = function($id) use ($objitems) {
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./creators.php" >
+                            <a class="nav-link" href="./creators" >
                               <span class="nav-link-title">
                                 Yapımcılar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./bugreport.php" >
+                            <a class="nav-link" href="./bugreport" >
                               <span class="nav-link-title">
                                 Bug Bildir
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./community.php" >
+                            <a class="nav-link" href="./community" >
                               <span class="nav-link-title">
                                 Topluluk
                               </span>
@@ -255,7 +192,7 @@ $findstatus = function($id) use ($objitems) {
                                 <div></div><h4></h4>
                                 <input type="text" class="form-control" placeholder="Yönetilecek Kullanıcı İsmi" required>
                                 <div></div><h4></h4>
-                                <input type="text" class="form-control" placeholder="İsmini değiştir" required>
+                                <input type="text" class="form-control" placeholder="İsmini değitir" required>
                                 <div></div><h4></h4>
                                 <input type="text" class="form-control" placeholder="Yaşını Değiştir" required>
                                 <div></div><h4></h4>
@@ -286,7 +223,7 @@ $findstatus = function($id) use ($objitems) {
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
-                                            <span class="form-check-label">Ülke Başkanı Yap</span>
+                                            <span class="form-check-label">lke Başkanı Yap</span>
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
@@ -350,7 +287,7 @@ $findstatus = function($id) use ($objitems) {
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
-                                            <span class="form-check-label">Sınıf Düşür</span>
+                                            <span class="form-check-label">Sınf Düşür</span>
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
@@ -374,7 +311,7 @@ $findstatus = function($id) use ($objitems) {
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
-                                            <span class="form-check-label">Kafasına Meteor Düşür</span>
+                                            <span class="form-check-label">Kafasına Meteor Düşr</span>
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
@@ -386,7 +323,7 @@ $findstatus = function($id) use ($objitems) {
                                         </label>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox">
-                                            <span class="form-check-label">Balkondan Düşür</span>
+                                            <span class="form-check-label">Balkondan Dşür</span>
                                         </label>
                                     </div>
                                 </div>
@@ -396,11 +333,11 @@ $findstatus = function($id) use ($objitems) {
                               <div class="card-footer">
                               <div></div><h4></h4>
                               <form enctype="multipart/form-data" action="" method="POST">
-                                <a href="dunya.php" class="btn btn-primary">Ana Menü</a>
+                                <a href="dunya" class="btn btn-primary">Ana Menü</a>
                               </form>
                               <div></div><h4></h4>
                               <small class="form-hint">
-                                  Bu sitenin kullanımından dolayı dünyada oluşacak zararlardan Nomee6 Inc. sorumlu tutulamaz.
+                                  Bu sitenin kullanımından dolayı dünyada oluacak zararlardan Nomee6 Inc. sorumlu tutulamaz.
                               </small>
                               <div></div><h4></h4>
                               </div>
