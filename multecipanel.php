@@ -1,4 +1,6 @@
 <?php
+include_once 'config.php';
+
 $jsonitem = file_get_contents("./dunya.json");
 
 $objitems = json_decode($jsonitem);
@@ -31,9 +33,9 @@ if (isset($_POST['send'])) {
 		  $current_data = file_get_contents('multeci.json');
 		  $array_data = json_decode($current_data, true);
 		    $extra = array(
-			    'id'               =>     $_POST['muulke'],
-			    'irk'               =>     $_POST['muirk'],
-			    'value'             =>     $_POST['musayi'],
+			    'id'               =>     htmlentities($_POST['muulke']),
+			    'irk'               =>     htmlentities($_POST['muirk']),
+			    'value'             =>     htmlentities($_POST['musayi']),
 		    );
 		        $array_data[] = $extra;
 		        $final_data = json_encode($array_data);
@@ -70,7 +72,7 @@ if (isset($_POST['send'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="pragma" content="no-cache" />
-    <meta name="description" content="Allah Yönetim Paneli ile tüm güç artık senin!">
+    <meta name="description" content="Allah Yönetim Paneli ile tüm gü artık senin!">
     <meta name="keywords" content="allah, yönetim, panel, paneli, allah yönetim, allah yönetim paneli, evren yönetim, evren yönetim paneli, evren yönetim panel, allah yönetim panel">
     <title>Allah Yönetim Paneli</title>
     <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
@@ -79,10 +81,10 @@ if (isset($_POST['send'])) {
     <link href="./dist/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="./dist/css/demo.min.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <meta property="og:title" content="Allah Yönetim Paneli" />
+    <meta property="og:title" content="Allah Ynetim Paneli" />
     <meta property="og:site_name" content="Allah Yönetim Paneli NOMEE6" />
     <meta property="og:locale" content="tr_TR" />
-    <meta property="og:description" content="Allah Yönetim Paneli ile tüm güç artık senin!" />
+    <meta property="og:description" content="Allah Yönetim Paneli ile tm güç artık senin!" />
     <meta property="og:image" content="https://nomee6.xyz/assets/pp.png" />
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="https://nomee6.xyz/assets/pp.png" />
@@ -130,7 +132,7 @@ if (isset($_POST['send'])) {
                       <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Koyu Temaya Geç" data-bs-toggle="tooltip" data-bs-placement="bottom">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
                       </a>
-                      <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Açık Temaya Geç" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                      <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Açık Temaya Ge" data-bs-toggle="tooltip" data-bs-placement="bottom">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
                       </a>
                     </div>
@@ -138,35 +140,35 @@ if (isset($_POST['send'])) {
                       <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
                         <ul class="navbar-nav">
                           <li class="nav-item active">
-                            <a class="nav-link" href="dunya.php" >
+                            <a class="nav-link" href="dunya" >
                               <span class="nav-link-title">
                                 Dünya
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cehennem.php" >
+                            <a class="nav-link" href="cehennem" >
                               <span class="nav-link-title">
                                 Cehennem
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cennet.php" >
+                            <a class="nav-link" href="cennet" >
                               <span class="nav-link-title">
                                 Cennet
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="dolar.php" >
+                            <a class="nav-link" href="dolar" >
                               <span class="nav-link-title">
                                 Dolar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="bank.php" >
+                            <a class="nav-link" href="bank" >
                               <span class="nav-link-title">
                                 Banka
                               </span>
@@ -180,21 +182,21 @@ if (isset($_POST['send'])) {
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./creators.php" >
+                            <a class="nav-link" href="./creators" >
                               <span class="nav-link-title">
-                                Yapımcılar
+                                Yapımclar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./bugreport.php" >
+                            <a class="nav-link" href="./bugreport" >
                               <span class="nav-link-title">
                                 Bug Bildir
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./community.php" >
+                            <a class="nav-link" href="./community" >
                               <span class="nav-link-title">
                                 Topluluk
                               </span>
@@ -245,7 +247,7 @@ if (isset($_POST['send'])) {
                                 <div></div><h4></h4>
                                 <input type="text" name="musayi" class="form-control" placeholder="Mülteci Sayısı" required>
                                 <div></div><h4></h4>
-                                <input type="text" name="muirk" class="form-control" placeholder="Mülteci ırkı">
+                                <input type="text" name="muirk" class="form-control" placeholder="Mülteci ırk">
                                 <div></div><h4></h4>
                                 <button name="send" class="btn btn-primary">Mülteci Gönder</button>
                               </form>
@@ -264,13 +266,13 @@ if (isset($_POST['send'])) {
                               <div class="col-12">
                             <div class="card">
                               <div class="card-body">
-                                <h3 class="card-title">Ülkelere Göre Mülteci Nüfusları</h3>
+                                <h3 class="card-title">lkelere Göre Mülteci Nüfuslar</h3>
                                 <div class="table-responsive">
                                     <table class="table table-vcenter card-table">
                                         <thead>
                                             <tr>
                                                 <th>Ülke</th>
-                                                <th>Mülteci Sayısı</th>
+                                                <th>Mülteci Saysı</th>
                                                 <th>Mülteci Irkları</th>
                                             </tr>
                                         </thead>
