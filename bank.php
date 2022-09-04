@@ -12,13 +12,19 @@ $findvalue = function($id) use ($objitems) {
   };
 
 if (isset($_POST['submit'])) {
-  foreach ($json_arr as $key => $value) {
-    if ($value['id'] == "faiz") {
-        $json_arr[$key]['value'] = $_POST["newfaizprice"];
+    if(ctype_digit($_POST["newfaizprice"])) {
+        foreach ($json_arr as $key => $value) {
+          if ($value['id'] == "faiz") {
+              $json_arr[$key]['value'] = $_POST["newfaizprice"];
+          }
+        }
+        file_put_contents('./doviz.json', json_encode($json_arr));
+        header("Refresh:0");
+    } else {
+        echo "<div class=\"alert alert-danger\">
+                  <h4 class=\"alert-title\" style=\"text-align:center\">Girdiğiniz veri bir rakam değil!</h4>
+                </div>";
     }
-}
-file_put_contents('./doviz.json', json_encode($json_arr));
-header("Refresh:0");
 };
 ?>
 
@@ -38,6 +44,15 @@ header("Refresh:0");
     <meta property="og:site_name" content="Allah Yönetim Paneli NOMEE6" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:image" content="https://nomee6.xyz/assets/pp.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="https://nomee6.xyz/assets/pp.png" />
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('https://ayp.nomee6.xyz/service-worker.js');
+    } else {
+        console.log("Service worker bu tarayıcıda desteklenmiyor.");
+    }
+    </script>
     <!-- Matomo -->
     <script>
       var _paq = window._paq = window._paq || [];
@@ -83,35 +98,35 @@ header("Refresh:0");
                       <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
                         <ul class="navbar-nav">
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="dunya.php" >
+                            <a class="nav-link" href="dunya" >
                               <span class="nav-link-title">
                                 Dünya
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cehennem.php" >
+                            <a class="nav-link" href="cehennem" >
                               <span class="nav-link-title">
                                 Cehennem
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cennet.php" >
+                            <a class="nav-link" href="cennet" >
                               <span class="nav-link-title">
                                 Cennet
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="dolar.php" >
+                            <a class="nav-link" href="dolar" >
                               <span class="nav-link-title">
                                 Dolar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item active">
-                            <a class="nav-link" href="bank.php" >
+                            <a class="nav-link" href="bank" >
                               <span class="nav-link-title">
                                 Banka
                               </span>
@@ -125,16 +140,23 @@ header("Refresh:0");
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./creators.php" >
+                            <a class="nav-link" href="./creators" >
                               <span class="nav-link-title">
-                                Yapımcılar
+                                Yapmcılar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./bugreport.php" >
+                            <a class="nav-link" href="./bugreport" >
                               <span class="nav-link-title">
                                 Bug Bildir
+                              </span>
+                            </a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link" href="./community" >
+                              <span class="nav-link-title">
+                                Topluluk
                               </span>
                             </a>
                           </li>
@@ -173,7 +195,7 @@ header("Refresh:0");
                               <form enctype="multipart/form-data" action="" method="POST">
                                 <input type="text" class="form-control" placeholder="Kişi İsmi" name="bankabosalt" required>
                                 <div></div><h4></h4>
-                                <button name="bankahesabinibosalt" class="btn btn-primary">Banka Hesabını Boşalt</button>
+                                <button name="bankahesabinibosalt" class="btn btn-primary">Banka Hesabnı Boşalt</button>
                                 <button name="bankahesabinidoldur" class="btn btn-primary">Banka Hesabını Doldur</button>
                               </form>
                               <div></div><h4></h4>
@@ -205,7 +227,7 @@ header("Refresh:0");
                   </li>
                   <li class="list-inline-item">
                     <a href="." class="link-secondary" rel="noopener">
-                      Bu site tamamen mizah amaçlı yapılmıştır.
+                      Bu site tamamen mizah amaçlı yapılmştır.
                     </a>
                   </li>
                 </ul>
