@@ -1,4 +1,6 @@
 <?php
+include_once 'config.php';
+
 $data = file_get_contents('./twitch.json');
 $json_arr = json_decode($data, true);
 
@@ -14,7 +16,7 @@ $findname = function($id) use ($objitems) {
 if (isset($_POST['platformnamechange'])) {
   foreach ($json_arr as $key => $value) {
       if ($value['id'] == "platformname") {
-          $json_arr[$key]['name'] = $_POST['newtwitchname'];
+          $json_arr[$key]['name'] = htmlentities($_POST['newtwitchname']);
       }
   }
   file_put_contents('./twitch.json', json_encode($json_arr));
@@ -27,7 +29,7 @@ if (isset($_POST['platformnamechange'])) {
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="description" content="Allah Yönetim Paneli ile tüm güç artık senin!">
+    <meta name="description" content="Allah Yönetim Paneli ile tm güç artık senin!">
     <meta name="keywords" content="allah, yönetim, panel, paneli, allah yönetim, allah yönetim paneli, evren yönetim, evren yönetim paneli, evren yönetim panel, allah yönetim panel">
     <title>Allah Yönetim Paneli</title>
     <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
@@ -40,6 +42,15 @@ if (isset($_POST['platformnamechange'])) {
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:description" content="Allah Yönetim Paneli ile tüm güç artık senin!" />
     <meta property="og:image" content="https://nomee6.xyz/assets/pp.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="https://nomee6.xyz/assets/pp.png" />
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('https://ayp.nomee6.xyz/service-worker.js');
+    } else {
+        console.log("Service worker bu tarayıcıda desteklenmiyor.");
+    }
+    </script>
     <!-- Matomo -->
     <script>
       var _paq = window._paq = window._paq || [];
@@ -85,35 +96,35 @@ if (isset($_POST['platformnamechange'])) {
                       <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
                         <ul class="navbar-nav">
                           <li class="nav-item active">
-                            <a class="nav-link" href="dunya.php" >
+                            <a class="nav-link" href="dunya" >
                               <span class="nav-link-title">
-                                Dünya
+                                Dnya
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cehennem.php" >
+                            <a class="nav-link" href="cehennem" >
                               <span class="nav-link-title">
                                 Cehennem
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="cennet.php" >
+                            <a class="nav-link" href="cennet" >
                               <span class="nav-link-title">
                                 Cennet
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="dolar.php" >
+                            <a class="nav-link" href="dolar" >
                               <span class="nav-link-title">
                                 Dolar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="bank.php" >
+                            <a class="nav-link" href="bank" >
                               <span class="nav-link-title">
                                 Banka
                               </span>
@@ -127,21 +138,21 @@ if (isset($_POST['platformnamechange'])) {
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./creators.php" >
+                            <a class="nav-link" href="./creators" >
                               <span class="nav-link-title">
                                 Yapımcılar
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./bugreport.php" >
+                            <a class="nav-link" href="./bugreport" >
                               <span class="nav-link-title">
                                 Bug Bildir
                               </span>
                             </a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link" href="./community.php" >
+                            <a class="nav-link" href="./community" >
                               <span class="nav-link-title">
                                 Topluluk
                               </span>
@@ -164,7 +175,7 @@ if (isset($_POST['platformnamechange'])) {
                               <div class="card-img-top img-responsive img-responsive-16by9" style="background-image: url(./static/twitch.jpg)"></div>
                               <div class="card-body">
                                 <h3 class="card-title"><?php echo $findname("platformname"); ?> Ayarları</h3>
-                                Platform İsmi: <div class="text-green"><?php echo $findname("platformname"); ?></div></p>
+                                Platform İsmi: <div class="text-green"><?php echo htmlentities($findname("platformname")); ?></div></p>
                               </div>
                               <div class="card-footer">
                             <div></div><h4></h4>
@@ -177,7 +188,7 @@ if (isset($_POST['platformnamechange'])) {
                               <form enctype="multipart/form-data" action="" method="POST">
                                 <input type="text" class="form-control" placeholder="Kendi Nickin" required>
                                 <div></div><h4></h4>
-                                <button name="kendineabunegonder" class="btn btn-primary">Kendine Abone Gönder</button>
+                                <button name="kendineabunegonder" class="btn btn-primary">Kendine Abone Gnder</button>
                                 <button name="kendinepartner" class="btn btn-primary">Kendine Partner Ver</button>
                                 <div></div><h4></h4>
                                 <button name="sponsorlarikendinegonder" class="btn btn-primary">Bütün sponsorları kendine gönder</button>
@@ -193,7 +204,7 @@ if (isset($_POST['platformnamechange'])) {
                               </form>
                               <div></div><h4></h4>
                               <form enctype="multipart/form-data" action="" method="POST">
-                                <button name="herkesabonesifirla" class="btn btn-primary">Herkesin abonesini sıfırla</button>
+                                <button name="herkesabonesifirla" class="btn btn-primary">Herkesin abonesini sıfrla</button>
                               </form>
                               <div></div><h4></h4>
                               <form enctype="multipart/form-data" action="" method="POST">
@@ -222,7 +233,7 @@ if (isset($_POST['platformnamechange'])) {
                               <form enctype="multipart/form-data" action="" method="POST">
                                 <input id="newtwitchname" name="newtwitchname" type="text" class="form-control" placeholder="Yeni Platform İsmi" required>
                                 <div></div><h4></h4>
-                                <button id="platformnamechange" name="platformnamechange" class="btn btn-primary">Platform İsmini Değiştir</button>
+                                <button id="platformnamechange" name="platformnamechange" class="btn btn-primary">Platform smini Değiştir</button>
                               </form>
                               <div></div><h4></h4>
                               <form enctype="multipart/form-data" action="" method="POST">
@@ -262,7 +273,7 @@ if (isset($_POST['platformnamechange'])) {
                   </li>
                   <li class="list-inline-item">
                     <a href="." class="link-secondary" rel="noopener">
-                      Bu site tamamen mizah amaçlı yapılmıştır.
+                      Bu site tamamen mizah amaçlı yapılmıtır.
                     </a>
                   </li>
                 </ul>
